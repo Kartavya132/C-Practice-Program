@@ -12,7 +12,7 @@ int main()
     //? Taking Input.
 
     printf("Enter the temperature in celsius : ");
-    scanf("%f", celsius);
+    scanf("%f", &celsius);
 
     //? Calculating temperature
 
