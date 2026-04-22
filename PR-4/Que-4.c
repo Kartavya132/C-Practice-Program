@@ -20,7 +20,7 @@ int main() {
             (j % 2 == 1) ? printf("1 ") : printf("0 ");
         }
 
-        // Move to next line after each row
+        // To print in next row
         printf("\n");
     }
 
