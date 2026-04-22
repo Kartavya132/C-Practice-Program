@@ -18,7 +18,7 @@ int main() {
             printf("%d ", j);
         }
 
-        // Move to the next line after each row
+        // Output to next line
         printf("\n");
     }
 
