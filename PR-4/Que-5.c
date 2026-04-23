@@ -23,8 +23,9 @@ int main() {
             printf("%d ", k);
         }
 
+        // Printing the next line
         printf("\n");
     }
-
+    
     return 0;
 }
