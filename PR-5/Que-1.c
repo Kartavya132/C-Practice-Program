@@ -30,10 +30,10 @@ int main() {
         }
     }
 
-    // If no negative element exists
+    // It acts like an else case for negative elements
     if (found == 0) {
         printf("No negative elements found.");
     }
 
-    return 0;
+    return 0; // Programs return false
 }
