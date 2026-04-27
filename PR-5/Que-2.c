@@ -46,7 +46,9 @@ int main()
     }
     printf("\n");
   }
+
+  // Printing the largest no.
   printf("\nThe Largest no. in matrix is %d.\n", largest);
 
-  return 0;
+  return 0; // Ending
 }
