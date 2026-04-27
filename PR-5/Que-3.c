@@ -36,7 +36,7 @@ int main()
     {
       printf("%d ", a[i][j]);
     }
-    printf("\n");
+    printf("\n"); // Printing new line
   }
 
   // Printing Transpose Matrix
@@ -47,8 +47,8 @@ int main()
     {
       printf("%d ", b[i][j]);
     }
-    printf("\n");
+    printf("\n"); // Printing new line
   }
 
-  return 0;
+  return 0; // Ending
 }
