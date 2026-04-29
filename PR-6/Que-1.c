@@ -36,5 +36,5 @@ int main()
   else
     printf("\nResult: '%s' is NOT a Palindrome \n", st);
 
-  return 0;
+  return 0; // Ending the program
 }
