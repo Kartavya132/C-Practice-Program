@@ -2,12 +2,12 @@
 
 #include <stdio.h>
 
-// Function prototypes
+// Function
 int showMenu(void);
 float calculate(int choice, int a, int b);
 void divider(void);
 void printResult(float result);
-
+  
 int main(void)
 {
     int choice, a, b; // Variables for user choice and input numbers
