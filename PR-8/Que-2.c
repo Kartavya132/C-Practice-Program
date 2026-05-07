@@ -1,20 +1,18 @@
 #include <stdio.h>
 
+#define MAX 10
+
 // Function to print cube of array elements using pointer
-void cube(int *p, int r, int c)
+void printCubes(const int *ptr, int rows, int cols)
 {
-    int i, j;
-
-    // Traverse the 2D array using pointer
-    for(i = 0; i < r; i++)
+    for (int i = 0; i < rows; i++)
     {
-        for(j = 0; j < c; j++)
+        for (int j = 0; j < cols; j++)
         {
-            // Print cube of current element
-            printf("%d ", (*p) * (*p) * (*p));
+            int value = *ptr;
+            printf("%d ", value * value * value);
 
-            // Move pointer to next element
-            p++;
+            ptr++; // Move to next element
         }
         printf("\n");
     }
@@ -22,26 +20,39 @@ void cube(int *p, int r, int c)
 
 int main()
 {
-    int a[10][10], r, c;
-    int i, j;
+    int array[MAX][MAX];
+    int rows, cols;
 
     // Input rows and columns
-    printf("Enter rows and columns: ");
-    scanf("%d %d", &r, &c);
+    printf("Enter number of rows and columns (max %d): ", MAX);
 
-    // Input elements of array
-    printf("Enter elements:\n");
-    for(i = 0; i < r; i++)
+    if (scanf("%d %d", &rows, &cols) != 2)
     {
-        for(j = 0; j < c; j++)
+        printf("Invalid input.\n");
+        return 1;
+    }
+
+    // Validate dimensions
+    if (rows <= 0 || cols <= 0 || rows > MAX || cols > MAX)
+    {
+        printf("Rows and columns must be between 1 and %d.\n", MAX);
+        return 1;
+    }
+
+    // Input array elements
+    printf("Enter %d elements:\n", rows * cols);
+
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
         {
-            scanf("%d", &a[i][j]);
+            scanf("%d", &array[i][j]);
         }
     }
 
-    // Call function by passing pointer
-    printf("Cube of elements:\n");
-    cube(&a[0][0], r, c);
+    // Display cubes
+    printf("\nCube of elements:\n");
+    printCubes(&array[0][0], rows, cols);
 
     return 0;
 }
