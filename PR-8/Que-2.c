@@ -1,58 +1,38 @@
 #include <stdio.h>
 
-#define MAX 10
+// Function to input elements using pointers
+void inputElements(int rows, int cols, int *ptr) {
+    printf("Enter %d elements:\n", rows * cols);
+    for (int i = 0; i < rows * cols; i++) {
+        scanf("%d", (ptr + i)); // Directly store at pointer offset
+    }
+}
 
-// Function to print cube of array elements using pointer
-void printCubes(const int *ptr, int rows, int cols)
-{
-    for (int i = 0; i < rows; i++)
-    {
-        for (int j = 0; j < cols; j++)
-        {
-            int value = *ptr;
-            printf("%d ", value * value * value);
-
-            ptr++; // Move to next element
+// Function to print cubes using pointer arithmetic
+void printCubes(int rows, int cols, int *ptr) {
+    printf("\nCube of elements:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            // Calculate offset: (current row * total columns) + current column
+            int value = *(ptr + (i * cols) + j);
+            printf("%d\t", value * value * value);
         }
         printf("\n");
     }
 }
 
-int main()
-{
-    int array[MAX][MAX];
+int main() {
     int rows, cols;
 
-    // Input rows and columns
-    printf("Enter number of rows and columns (max %d): ", MAX);
+    printf("Enter rows and columns: ");
+    if (scanf("%d %d", &rows, &cols) != 2) return 1;
 
-    if (scanf("%d %d", &rows, &cols) != 2)
-    {
-        printf("Invalid input.\n");
-        return 1;
-    }
+    // Use a VLA (Variable Length Array) for simplicity
+    int array[rows][cols];
 
-    // Validate dimensions
-    if (rows <= 0 || cols <= 0 || rows > MAX || cols > MAX)
-    {
-        printf("Rows and columns must be between 1 and %d.\n", MAX);
-        return 1;
-    }
-
-    // Input array elements
-    printf("Enter %d elements:\n", rows * cols);
-
-    for (int i = 0; i < rows; i++)
-    {
-        for (int j = 0; j < cols; j++)
-        {
-            scanf("%d", &array[i][j]);
-        }
-    }
-
-    // Display cubes
-    printf("\nCube of elements:\n");
-    printCubes(&array[0][0], rows, cols);
+    // Pass the base address of the array to our functions
+    inputElements(rows, cols, &array[0][0]);
+    printCubes(rows, cols, &array[0][0]);
 
     return 0;
 }
